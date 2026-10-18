@@ -797,7 +797,7 @@ def main():
 
     while True:
         print("\nChoose a cipher:")
-        print("  1 - RouteCipher (our own, networking-inspired)")
+        print("  1 - RouteCipher (Groupmade cipher")
         for k in ("2", "3", "4"):
             print(f"  {k} - {CLASSICS[k]['name']}")
         print("  q - Quit")
