@@ -2,7 +2,7 @@
 Console Based Cryptography Program 
 
 Ciphers available:
-  1. RouteCipher (our own, networking-inspired cipher)
+  1. RouteCipher (group made cipher)
   2. Caesar Cipher
   3. Vigenere Cipher
   4. Columnar Transposition Cipher
@@ -794,8 +794,8 @@ def classic_menu(cfg):
 
 def main():
     print("=" * 54)
-    print("  Console Cryptography Program")
-    print("  (for learning only, never use for real data)")
+    print("  Console Based Cryptography Program")
+  
     print("=" * 54)
 
     while True:
