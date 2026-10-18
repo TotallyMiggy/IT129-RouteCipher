@@ -20,7 +20,7 @@ def wait(label=""):
 
 
 def is_letter(c):
-    """True for ASCII letters only (A-Z, a-z)."""
+    
     return c.isascii() and c.isalpha()
 
 
@@ -33,7 +33,6 @@ def n2l(n):
 
 
 def ask_text_any(prompt):
-    """Ask for any non-empty text (used by the classic ciphers)."""
     while True:
         raw = input(prompt)
         if raw.strip() == "":
@@ -135,9 +134,9 @@ def caesar_steps(text, key, enc):
     print("  Result:", caesar_run(text, key, enc))
 
 
-# =====================================================================
+
 # VIGENERE CIPHER
-# =====================================================================
+
 
 VIGENERE_ABOUT = {
     "name": "Vigenere Cipher",
@@ -227,9 +226,9 @@ def vigenere_steps(text, key, enc):
     print("  Result:", vigenere_run(text, key, enc))
 
 
-# =====================================================================
+
 # COLUMNAR TRANSPOSITION CIPHER
-# =====================================================================
+
 
 TRANSPOSITION_ABOUT = {
     "name": "Columnar Transposition Cipher",
@@ -369,11 +368,10 @@ def transposition_steps(text, key, enc):
         print("  Result:", trans_run(text, key, False))
 
 
-# =====================================================================
+
 # ROUTECIPHER (our own cipher)
-# =====================================================================
 # - Key: IP address (4 octets, each taken mod 26)
-# - Packet size (MTU): 4 letters, padded with X before encryption
+# - Packet size (Maximum Transmission Unit): 4 letters, padded with X before encryption
 # - TTL: 2 (hop 1 = shift, hop 2 = reverse)
 # - Seq number is added to every shift
 # - Checksum: sum of letter positions mod 26
@@ -424,7 +422,6 @@ def validate_ip(text):
 
 
 def clean_text(raw):
-    """Uppercase and keep only A-Z letters."""
     return "".join(c for c in raw.upper() if "A" <= c <= "Z")
 
 
@@ -524,7 +521,7 @@ def ask_route_text(prompt="Enter plain text: "):
 
 
 def parse_packet(raw, used_seqs):
-    """Parse 'Seq | TTL | Len | Payload | Chk'. Return (packet, error)."""
+    """Parse "Seq | TTL | Len | Payload | Chk". Return (packet, error)."""
     f = raw.replace("|", " ").split()
     if len(f) != 5:
         return None, "Expected 5 fields: Seq | TTL | Len | Payload | Chk  (e.g. 1 | 2 | 4 | GYVE | D)"
@@ -747,9 +744,9 @@ def route_menu():
             print("  Error: please choose 1, 2, 3, 4, 5, or b.")
 
 
-# =====================================================================
+
 # MENUS
-# =====================================================================
+
 
 CLASSICS = {
     "2": {"name": "Caesar Cipher", "about": CAESAR_ABOUT, "ask_key": ask_caesar_key,
